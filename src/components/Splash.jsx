@@ -16,29 +16,21 @@ function Splash() {
     display: "block"
   };
 
-  var buttonArea = {
+  var navArea = {
     paddingTop: "70px",
   };
 
-  var menuButtonStyle = {
+  var menuLinkStyle = {
     fontFamily: "Courgette, cursive",
-    display: "block",
     color: "#b9e567",
-    marginLeft: "auto",
-    marginRight: "auto",
-    borderWidth: "5px",
-    borderColor: "#b9e567",
-    padding: "20px",
+    textAlign: "center",
     fontSize: "36px"
   };
 
-  var employeeButtonStyle = {
+  var employeeLinkStyle = {
     fontFamily: "Courgette, cursive",
-    display: "block",
     color: "#b9e567",
-    margin: "auto",
-    borderWidth: "0px",
-    padding: "20px",
+    textAlign: "center",
     fontSize: "24px"
   };
 
@@ -47,9 +39,9 @@ function Splash() {
       <div style={headerStyle}>
         <img style={logoStyle} src={logo} />
       </div>
-      <div style={buttonArea}>
-        <p><Link to="./menu"><button style={menuButtonStyle}>View Our Menu</button></Link></p>
-        <p><Link to="./employees"><button style={employeeButtonStyle}>Employees Only</button></Link></p>
+      <div style={navArea}>
+        <p style={menuLinkStyle}><Link to="./menu">View Our Menu</Link></p>
+        <p style={employeeLinkStyle}><Link to="./employees">Employees Only</Link></p>
       </div>
     </div>
   );
