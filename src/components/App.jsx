@@ -3,6 +3,7 @@ import React from "react";
 // import { Link } from "react-router-dom";
 // import Header from "./Header";
 // import PropTypes from "prop-types";
+// import imageName from '../assets/images/imageFileName.jpg';
 
 function App() {
   return (
