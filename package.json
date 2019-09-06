@@ -1,0 +1,11 @@
+{
+  "name": "tap-room",
+  "version": "1.0.0",
+  "description": "Web app for a tap room to track kegs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Na Hyung Choi",
+  "license": "ISC"
+}
