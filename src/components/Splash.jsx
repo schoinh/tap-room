@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import PropTypes from "prop-types";
 import logo from "../assets/images/Logo.png";
 
 function Splash() {
@@ -46,11 +45,5 @@ function Splash() {
     </div>
   );
 }
-
-// Ticket.propTypes = {
-//   names: PropTypes.string,
-//   location: PropTypes.string,
-//   issue: PropTypes.string
-// };
 
 export default Splash;

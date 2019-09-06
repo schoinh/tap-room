@@ -3,10 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import Splash from "./Splash";
 import Menu from "./Menu";
 import EmployeeView from "./EmployeeView";
-// import Form from "./Form";
-// import PropTypes from "prop-types";
 import Error404 from "./Error404";
-
 
 function App() {
   return (
@@ -22,11 +19,5 @@ function App() {
     </div>
   );
 }
-
-// Ticket.propTypes = {
-//   names: PropTypes.string,
-//   location: PropTypes.string,
-//   issue: PropTypes.string
-// };
 
 export default App;

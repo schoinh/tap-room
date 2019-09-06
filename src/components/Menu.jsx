@@ -1,5 +1,6 @@
 import React from "react";
 import FlavorGroup from "./FlavorGroup";
+import { Link } from "react-router-dom";
 
 function Menu() {
   return (
@@ -9,6 +10,8 @@ function Menu() {
       <hr />
       <FlavorGroup
         flavor="fruity" />
+      <hr />
+      <Link to="/">Home</Link>
     </div>
   );
 }
