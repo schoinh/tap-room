@@ -5,11 +5,9 @@ import { Link } from "react-router-dom";
 function Menu() {
   return (
     <div>
-      <FlavorGroup
-        flavor="herbal" />
+      <FlavorGroup flavor="herbal" />
       <hr />
-      <FlavorGroup
-        flavor="fruity" />
+      <FlavorGroup flavor="fruity" />
       <hr />
       <Link to="/">Home</Link>
     </div>
