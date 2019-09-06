@@ -5,7 +5,7 @@ var kombuchaList = [
     flavor: "fruity",
     price: 5,
     description: "Exceptional juiciness and a vibrant tropical flavor that balances the tastes of sweet and tart mixed with the mildly aromatic turmeric.",
-    pintsLeft: 124
+    pintsLeft: 124,
   },
   {
     name: "Blackberry",
@@ -29,7 +29,7 @@ var kombuchaList = [
     flavor: "fruity",
     price: 5,
     description: "These tropical troublemakers could merengue their way past midnight and hula until the sun comes up again.",
-    pintsLeft: 124
+    pintsLeft: 8
   },
   {
     name: "Clear Mind",

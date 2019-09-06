@@ -1,19 +1,16 @@
 import React from "react";
-// import Form from "./Form";
-// import PropTypes from "prop-types";
+import KegList from "./KegList";
+import { Link } from "react-router-dom";
 
 function EmployeeView() {
   return (
     <div>
-
+      <button>Add New Keg</button>
+      <KegList />
+      <hr />
+      <Link to="/">Home</Link>
     </div>
   );
 }
-
-// Ticket.propTypes = {
-//   names: PropTypes.string,
-//   location: PropTypes.string,
-//   issue: PropTypes.string
-// };
 
 export default EmployeeView;
