@@ -6,6 +6,7 @@ function Menu() {
     <div>
       <FlavorGroup
         flavor="herbal" />
+      <hr />
       <FlavorGroup
         flavor="fruity" />
     </div>
