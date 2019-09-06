@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function EmployeeView() {
   return (
     <div>
-      <button>Add New Keg</button>
+      <Link to="/add-keg"><button>Add New Keg</button></Link>
       <KegList />
       <hr />
       <Link to="/">Home</Link>
