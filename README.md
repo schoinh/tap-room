@@ -11,7 +11,7 @@
 | :-------------     | :------------- | :------------- |
 
 ## React Component and Route Structure
-![flowchart showing React components and routes](./src/assets/images/components.png)
+![flowchart showing React components and routes](./src/assets/images/components.png?raw=true)
 
 
 
