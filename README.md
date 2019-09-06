@@ -1,4 +1,4 @@
-# Tap Room
+# Cultred People - A Kombucha Tap Room
 
 #### _A Web app for tracking kegs at a tap room - September 6, 2019_
 
@@ -6,11 +6,13 @@
 
 ## Description
 
-## React Component and Route Structure
-
 ### Specs
 | Spec | Input | Output |
 | :-------------     | :------------- | :------------- |
+
+## React Component and Route Structure
+![flowchart showing React components and routes](./src/assets/images/components.png)
+
 
 
 ## Setup/Installation Requirements
