@@ -1,20 +1,28 @@
 import React from "react";
 import Keg from "./Keg";
 import PropTypes from "prop-types";
-import kombuchaList from "../assets/data/KombuchaList";
 
 function KegGroup(props) {
   var filteredList;
+  var headerStyles;
 
-  if (props.status == "Running Low") {
-    filteredList = kombuchaList.filter(kombucha => kombucha.pintsLeft <= 10);
+  if (props.status == "Running Low (< 10 pt)") {
+    filteredList = props.kegList.filter(kombucha => kombucha.pintsLeft <= 10);
+    if (filteredList.length != 0) {
+      headerStyles = {
+        color: "Red"
+      };
+    }
   } else {
-    filteredList = kombuchaList.filter(kombucha => kombucha.pintsLeft > 10);
+    filteredList = props.kegList.filter(kombucha => kombucha.pintsLeft > 10);
+    headerStyles = {
+      color: "Green"
+    };
   }
 
   return (
     <div>
-      <h1>{props.status}</h1>
+      <h1 style={headerStyles}>{props.status}</h1>
       {filteredList.map((kombucha, index) =>
         <Keg
           name={kombucha.name}
@@ -28,7 +36,8 @@ function KegGroup(props) {
 }
 
 KegGroup.propTypes = {
-  status: PropTypes.string
+  status: PropTypes.string,
+  kegList: PropTypes.array
 };
 
 export default KegGroup;

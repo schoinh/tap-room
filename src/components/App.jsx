@@ -25,6 +25,9 @@ class App extends React.Component {
       ],
       selectedKeg: null
     };
+    this.styles = {
+      marginTop: "30px"
+    };
     this.handleNewKegCreation = this.handleNewKegCreation.bind(this);
   }
 
@@ -38,11 +41,11 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="container">
+      <div style={this.styles} className="container">
         <Switch>
           <Route exact path="/" component={Splash} />
           <Route path="/menu" render={() => <Menu kombuchaList={this.state.masterKegList} />} />
-          <Route path="/employees" component={EmployeeView} />
+          <Route path="/employees" render={() => <EmployeeView kegList={this.state.masterKegList} />} />
           <Route path="/add-keg" render={() => <CreateForm onNewKegCreation={this.handleNewKegCreation} />} />
           <Route path="/edit-keg" component={EditForm} />
           <Route component={Error404} />
