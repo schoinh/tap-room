@@ -4,8 +4,8 @@ import PropTypes from "prop-types";
 function Kombucha(props) {
   return (
     <div>
-      <h2>{props.name} - {props.brand}</h2>
-      <h4>{props.description}</h4>
+      <h3>{props.name} - {props.brand}</h3>
+      <h5><i>{props.description}</i></h5>
       <p>${props.price}</p>
     </div>
   );
