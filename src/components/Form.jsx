@@ -18,7 +18,7 @@ function Form(props) {
         brand: _brand.value,
         description: _description.value,
         flavor: _flavor.value,
-        price: _price.value,
+        price: parseInt(_price.value),
         pintsLeft: 124
       }
     );
