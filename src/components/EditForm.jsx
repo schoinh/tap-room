@@ -2,13 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-function Form(props) {
+function EditForm(props) {
   let _name = null;
   let _brand = null;
   let _description = null;
   let _flavor = null;
   let _price = null;
-  let _pintsLeft = null;
 
   const handleFormSubmission = (event) => {
     event.preventDefault();
@@ -47,12 +46,8 @@ function Form(props) {
           ref={(input) => { _flavor = input; }} /><br />
         <input
           type="number"
-          placeholder="Price"
+          placeholder="Price per Pint"
           ref={(input) => { _price = input; }} /><br />
-        <input
-          type="number"
-          placeholder="Pints Left"
-          ref={(input) => { _pintsLeft = input; }} /><br />
         <button type="submit">Submit</button>
       </form>
       <hr />
@@ -61,8 +56,8 @@ function Form(props) {
   );
 }
 
-Form.propTypes = {
+EditForm.propTypes = {
   onNewKegCreation: PropTypes.func
 };
 
-export default Form;
+export default EditForm;
