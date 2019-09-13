@@ -31,6 +31,7 @@ class App extends React.Component {
     this.handleNewKegCreation = this.handleNewKegCreation.bind(this);
     this.handleKegSelection = this.handleKegSelection.bind(this);
     this.handleKegEdit = this.handleKegEdit.bind(this);
+    this.handlePour = this.handlePour.bind(this);
   }
 
   handleNewKegCreation(newKeg) {
@@ -43,6 +44,16 @@ class App extends React.Component {
 
   handleKegSelection(keg) {
     this.setState({ selectedKeg: keg });
+  }
+
+  handlePour(kegId) {
+    const newMasterKegList = this.state.masterKegList.slice();
+    newMasterKegList.forEach((keg) => {
+      if (keg.id == kegId) {
+        keg.pintsLeft--;
+      }
+    });
+    this.setState({ masterKegList: newMasterKegList });
   }
 
   handleKegEdit(newKegInfo) {
@@ -65,10 +76,22 @@ class App extends React.Component {
       <div style={this.styles} className="container">
         <Switch>
           <Route exact path="/" component={Splash} />
-          <Route path="/menu" render={() => <Menu kombuchaList={this.state.masterKegList} />} />
-          <Route path="/employees" render={() => <EmployeeView kegList={this.state.masterKegList} onKegSelection={this.handleKegSelection} selectedKeg={this.state.selectedKeg} />} />
-          <Route path="/add-keg" render={() => <CreateForm onNewKegCreation={this.handleNewKegCreation} />} />
-          <Route path="/edit-keg" render={() => <EditForm onKegEdit={this.handleKegEdit} kegToEdit={this.state.selectedKeg} />} />
+          <Route path="/menu" render={() =>
+            <Menu
+              kombuchaList={this.state.masterKegList} />} />
+          <Route path="/employees" render={() =>
+            <EmployeeView
+              kegList={this.state.masterKegList}
+              onKegSelection={this.handleKegSelection}
+              selectedKeg={this.state.selectedKeg}
+              onPour={this.handlePour} />} />
+          <Route path="/add-keg" render={() =>
+            <CreateForm
+              onNewKegCreation={this.handleNewKegCreation} />} />
+          <Route path="/edit-keg" render={() =>
+            <EditForm
+              onKegEdit={this.handleKegEdit}
+              kegToEdit={this.state.selectedKeg} />} />
           <Route component={Error404} />
         </Switch>
       </div>

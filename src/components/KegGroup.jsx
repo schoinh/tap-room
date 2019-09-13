@@ -6,7 +6,7 @@ function KegGroup(props) {
   var filteredList;
   var headerStyles;
 
-  if (props.status == "Running Low (< 10 pt)") {
+  if (props.status == "Running Low (10 pt or Less)") {
     filteredList = props.kegList.filter(keg => keg.pintsLeft <= 10);
     if (filteredList.length != 0) {
       headerStyles = {
@@ -34,7 +34,8 @@ function KegGroup(props) {
           key={keg.id}
           kegId={keg.id}
           selectedKeg={props.selectedKeg}
-          onKegSelection={props.onKegSelection} />
+          onKegSelection={props.onKegSelection}
+          onPour={props.onPour} />
       )}
     </div>
   );
@@ -44,7 +45,8 @@ KegGroup.propTypes = {
   status: PropTypes.string,
   kegList: PropTypes.array,
   selectedKeg: PropTypes.object,
-  onKegSelection: PropTypes.func
+  onKegSelection: PropTypes.func,
+  onPour: PropTypes.func
 };
 
 export default KegGroup;
