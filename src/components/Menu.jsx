@@ -6,9 +6,9 @@ import PropTypes from "prop-types";
 function Menu(props) {
   return (
     <div>
-      <FlavorGroup kombuchaList={props.kombuchaList} flavor="herbal" />
+      <FlavorGroup kombuchaList={props.kombuchaList} flavor="Herbal" />
       <hr />
-      <FlavorGroup kombuchaList={props.kombuchaList} flavor="fruity" />
+      <FlavorGroup kombuchaList={props.kombuchaList} flavor="Fruity" />
       <hr />
       <Link to="/">Home</Link>
     </div>

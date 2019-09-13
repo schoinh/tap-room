@@ -3,7 +3,8 @@ import { Switch, Route } from "react-router-dom";
 import Splash from "./Splash";
 import Menu from "./Menu";
 import EmployeeView from "./EmployeeView";
-import Form from "./Form";
+import CreateForm from "./CreateForm";
+import EditForm from "./EditForm";
 import Error404 from "./Error404";
 import { v4 } from "uuid";
 
@@ -15,7 +16,7 @@ class App extends React.Component {
         {
           name: "Pineapple Turmeric",
           brand: "Humm Kombucha",
-          flavor: "fruity",
+          flavor: "Fruity",
           price: 5,
           description: "Exceptional juiciness and a vibrant tropical flavor that balances the tastes of sweet and tart mixed with the mildly aromatic turmeric.",
           pintsLeft: 124,
@@ -42,8 +43,8 @@ class App extends React.Component {
           <Route exact path="/" component={Splash} />
           <Route path="/menu" render={() => <Menu kombuchaList={this.state.masterKegList} />} />
           <Route path="/employees" component={EmployeeView} />
-          <Route path="/add-keg" render={() => <Form onNewKegCreation={this.handleNewKegCreation} />} />
-          <Route path="/edit-keg" component={Form} />
+          <Route path="/add-keg" render={() => <CreateForm onNewKegCreation={this.handleNewKegCreation} />} />
+          <Route path="/edit-keg" component={EditForm} />
           <Route component={Error404} />
         </Switch>
       </div>
