@@ -8,24 +8,25 @@ function EditForm(props) {
   let _description = null;
   let _flavor = null;
   let _price = null;
+  let _pintsLeft = null;
 
   const handleFormSubmission = (event) => {
     event.preventDefault();
-    props.onNewKegCreation(
+    props.onKegEdit(
       {
         name: _name.value,
         brand: _brand.value,
         description: _description.value,
         flavor: _flavor.value,
         price: parseInt(_price.value),
-        pintsLeft: 124
+        pintsLeft: _pintsLeft.value
       }
     );
   };
 
   return (
     <div>
-      <h1>Add a New Keg</h1>
+      <h1>Edit Keg: {props.kegName}</h1>
       <hr />
       <form onSubmit={handleFormSubmission}>
         <input
@@ -48,6 +49,10 @@ function EditForm(props) {
           type="number"
           placeholder="Price per Pint"
           ref={(input) => { _price = input; }} /><br />
+        <input
+          type="number"
+          placeholder="Pints Left"
+          ref={(input) => { _pintsLeft = input; }} /><br />
         <button type="submit">Submit</button>
       </form>
       <hr />
@@ -57,7 +62,9 @@ function EditForm(props) {
 }
 
 EditForm.propTypes = {
-  onNewKegCreation: PropTypes.func
+  onKegEdit: PropTypes.func,
+  kegId: PropTypes.string,
+  kegName: PropTypes.string
 };
 
 export default EditForm;

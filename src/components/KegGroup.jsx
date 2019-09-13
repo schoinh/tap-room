@@ -7,14 +7,14 @@ function KegGroup(props) {
   var headerStyles;
 
   if (props.status == "Running Low (< 10 pt)") {
-    filteredList = props.kegList.filter(kombucha => kombucha.pintsLeft <= 10);
+    filteredList = props.kegList.filter(keg => keg.pintsLeft <= 10);
     if (filteredList.length != 0) {
       headerStyles = {
         color: "Red"
       };
     }
   } else {
-    filteredList = props.kegList.filter(kombucha => kombucha.pintsLeft > 10);
+    filteredList = props.kegList.filter(keg => keg.pintsLeft > 10);
     headerStyles = {
       color: "Green"
     };
@@ -23,13 +23,16 @@ function KegGroup(props) {
   return (
     <div>
       <h1 style={headerStyles}>{props.status}</h1>
-      {filteredList.map((kombucha, index) =>
+      {filteredList.map((keg) =>
         <Keg
-          name={kombucha.name}
-          brand={kombucha.brand}
-          price={kombucha.price}
-          pintsLeft={kombucha.pintsLeft}
-          key={index} />
+          name={keg.name}
+          brand={keg.brand}
+          price={keg.price}
+          pintsLeft={keg.pintsLeft}
+          key={keg.id}
+          kegId={keg.id}
+          selectedKegId={props.selectedKegId}
+          onKegSelection={props.onKegSelection} />
       )}
     </div>
   );
@@ -37,7 +40,9 @@ function KegGroup(props) {
 
 KegGroup.propTypes = {
   status: PropTypes.string,
-  kegList: PropTypes.array
+  kegList: PropTypes.array,
+  selectedKegId: PropTypes.string,
+  onKegSelection: PropTypes.func
 };
 
 export default KegGroup;

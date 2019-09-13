@@ -6,23 +6,38 @@ function Keg(props) {
   var kegCard = {
     borderWidth: "1px",
     borderStyle: "solid",
-    borderColor: "black",
-    padding: "10px",
+    borderColor: "lightgray",
+    borderRadius: "10px",
+    padding: "15px",
     margin: "10px"
+  };
+
+  var editDeleteStyles = {
+    marginRight: "5px"
+  };
+
+  var pourStyles = {
+    marginLeft: "10px"
+  };
+
+  const handleEditButtonClick = () => {
+    console.log("handler activated");
+    props.onKegSelection(props.kegId, props.name);
   };
 
   return (
     <div style={kegCard}>
-      <Link to="/edit-keg"><button>Edit</button></Link>
-      <button>Remove</button>
+      <Link to="/edit-keg">
+        <button onClick={() => { handleEditButtonClick(); }} style={editDeleteStyles} className="btn btn-outline-info">Edit</button>
+      </Link>
+      <button onClick={() => { }} className="btn btn-outline-danger">Remove</button>
       <h2>
-        {props.name} - {props.brand}<br />
+        {props.name} - {props.brand}<button style={pourStyles} className="btn btn-primary">Pour</button><br />
         ${props.price}
       </h2>
-      <p>
-        Pints left: {props.pintsLeft}
-        <button>Pour 1 pt</button>
-      </p>
+      <h5>
+        Pints Left: {props.pintsLeft}
+      </h5>
     </div>
   );
 }
@@ -31,7 +46,10 @@ Keg.propTypes = {
   name: PropTypes.string,
   brand: PropTypes.string,
   price: PropTypes.number,
-  pintsLeft: PropTypes.number
+  kegId: PropTypes.string,
+  pintsLeft: PropTypes.number,
+  selectedKegId: PropTypes.string,
+  onKegSelection: PropTypes.func
 };
 
 export default Keg;

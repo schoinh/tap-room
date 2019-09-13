@@ -23,12 +23,15 @@ class App extends React.Component {
           id: "dummyKey"
         }
       ],
-      selectedKeg: null
+      selectedKegId: null,
+      selectedKegName: null
     };
     this.styles = {
       marginTop: "30px"
     };
     this.handleNewKegCreation = this.handleNewKegCreation.bind(this);
+    this.handleKegSelection = this.handleKegSelection.bind(this);
+    this.handleKegEdit = this.handleKegEdit.bind(this);
   }
 
   handleNewKegCreation(newKeg) {
@@ -39,15 +42,34 @@ class App extends React.Component {
     this.setState({ masterKegList: newMasterKegList });
   }
 
+  handleKegSelection(kegId, name) {
+    this.setState({ selectedKegId: kegId, selectedKegName: name });
+  }
+
+  handleKegEdit(newKegInfo) {
+    const newMasterKegList = this.state.masterKegList.slice();
+    newMasterKegList.forEach((keg) => {
+      if (keg.id == this.state.selectedKegId) {
+        keg.name = newKegInfo.name;
+        keg.brand = newKegInfo.brand;
+        keg.description = newKegInfo.description;
+        keg.flavor = newKegInfo.flavor;
+        keg.price = newKegInfo.price;
+        keg.pintsLeft = newKegInfo.pintsLeft;
+      }
+    });
+    this.setState({ masterKegList: newMasterKegList });
+  }
+
   render() {
     return (
       <div style={this.styles} className="container">
         <Switch>
           <Route exact path="/" component={Splash} />
           <Route path="/menu" render={() => <Menu kombuchaList={this.state.masterKegList} />} />
-          <Route path="/employees" render={() => <EmployeeView kegList={this.state.masterKegList} />} />
+          <Route path="/employees" render={() => <EmployeeView kegList={this.state.masterKegList} onKegSelection={this.handleKegSelection} selectedKegId={this.state.selectedKegId} />} />
           <Route path="/add-keg" render={() => <CreateForm onNewKegCreation={this.handleNewKegCreation} />} />
-          <Route path="/edit-keg" component={EditForm} />
+          <Route path="/edit-keg" render={() => <EditForm onKegEdit={this.handleKegEdit} kegId={this.state.selectedKegId} kegName={this.state.selectedKegName} />} />
           <Route component={Error404} />
         </Switch>
       </div>
