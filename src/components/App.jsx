@@ -66,7 +66,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" component={Splash} />
           <Route path="/menu" render={() => <Menu kombuchaList={this.state.masterKegList} />} />
-          <Route path="/employees" render={() => <EmployeeView kegList={this.state.masterKegList} onKegSelection={this.handleKegSelection} selectedKegId={this.state.selectedKegId} />} />
+          <Route path="/employees" render={() => <EmployeeView kegList={this.state.masterKegList} onKegSelection={this.handleKegSelection} selectedKeg={this.state.selectedKeg} />} />
           <Route path="/add-keg" render={() => <CreateForm onNewKegCreation={this.handleNewKegCreation} />} />
           <Route path="/edit-keg" render={() => <EditForm onKegEdit={this.handleKegEdit} kegToEdit={this.state.selectedKeg} />} />
           <Route component={Error404} />

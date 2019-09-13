@@ -29,31 +29,44 @@ function EditForm(props) {
       <h1>Edit Keg: {props.kegToEdit.name}</h1>
       <hr />
       <form onSubmit={handleFormSubmission}>
+        <label htmlFor="Name">Name</label>
         <input
           type="text"
-          placeholder="Name"
+          name="Name"
+          defaultValue={props.kegToEdit.name}
           ref={(input) => { _name = input; }} /><br />
+        <label htmlFor="Name">Brand</label>
         <input
           type="text"
-          placeholder="Brand"
+          name="Brand"
+          defaultValue={props.kegToEdit.brand}
           ref={(input) => { _brand = input; }} /><br />
+        <label htmlFor="Name">Description</label>
         <input
           type="text"
-          placeholder="Description"
+          name="Description"
+          defaultValue={props.kegToEdit.description}
           ref={(input) => { _description = input; }} /><br />
-        <input
-          type="text"
-          placeholder="Flavor"
-          ref={(input) => { _flavor = input; }} /><br />
+        <label htmlFor="Name">Flavor</label>
+        <select
+          name="flavor"
+          ref={(input) => { _flavor = input; }}>
+          <option value="Herbal">Herbal</option>
+          <option value="Fruity">Fruity</option>
+        </select><br />
+        <label htmlFor="Name">Price per Pint ($)</label>
         <input
           type="number"
-          placeholder="Price per Pint"
+          name="Price per Pint"
+          defaultValue={props.kegToEdit.price}
           ref={(input) => { _price = input; }} /><br />
+        <label htmlFor="Name">Pints Left</label>
         <input
           type="number"
-          placeholder="Pints Left"
-          ref={(input) => { _pintsLeft = input; }} /><br />
-        <button type="submit">Submit</button>
+          name="Pints Left"
+          defaultValue={props.kegToEdit.pintsLeft}
+          ref={(input) => { _pintsLeft = input; }} /><br /><br />
+        <button className="btn btn-primary" type="submit">Submit</button>
       </form>
       <hr />
       <Link to="/employees">Back</Link>

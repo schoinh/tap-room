@@ -21,14 +21,13 @@ function Keg(props) {
   };
 
   const handleEditButtonClick = () => {
-    console.log("handler activated");
     props.onKegSelection({
       name: props.name,
       brand: props.brand,
       description: props.description,
       flavor: props.flavor,
-      price: props.price,
-      pintsLeft: props.pintsLeft,
+      price: parseInt(props.price),
+      pintsLeft: parseInt(props.pintsLeft),
       id: props.kegId
     });
   };
