@@ -8,7 +8,7 @@ function EmployeeView(props) {
     <div>
       <Link to="/add-keg"><button className="btn btn-warning">Add New Keg</button></Link>
       <hr />
-      <KegList kegList={props.kegList} selectedKegId={props.selectedKegId} onKegSelection={props.onKegSelection} />
+      <KegList kegList={props.kegList} selectedKeg={props.selectedKeg} onKegSelection={props.onKegSelection} />
       <hr />
       <Link to="/">Home</Link>
     </div>
@@ -17,7 +17,7 @@ function EmployeeView(props) {
 
 EmployeeView.propTypes = {
   kegList: PropTypes.array,
-  selectedKegId: PropTypes.string,
+  selectedKeg: PropTypes.object,
   onKegSelection: PropTypes.func
 };
 

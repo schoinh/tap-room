@@ -26,7 +26,7 @@ function EditForm(props) {
 
   return (
     <div>
-      <h1>Edit Keg: {props.kegName}</h1>
+      <h1>Edit Keg: {props.kegToEdit.name}</h1>
       <hr />
       <form onSubmit={handleFormSubmission}>
         <input
@@ -63,8 +63,7 @@ function EditForm(props) {
 
 EditForm.propTypes = {
   onKegEdit: PropTypes.func,
-  kegId: PropTypes.string,
-  kegName: PropTypes.string
+  kegToEdit: PropTypes.object
 };
 
 export default EditForm;

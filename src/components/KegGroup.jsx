@@ -27,11 +27,13 @@ function KegGroup(props) {
         <Keg
           name={keg.name}
           brand={keg.brand}
+          description={keg.description}
+          flavor={keg.flavor}
           price={keg.price}
           pintsLeft={keg.pintsLeft}
           key={keg.id}
           kegId={keg.id}
-          selectedKegId={props.selectedKegId}
+          selectedKeg={props.selectedKeg}
           onKegSelection={props.onKegSelection} />
       )}
     </div>
@@ -41,7 +43,7 @@ function KegGroup(props) {
 KegGroup.propTypes = {
   status: PropTypes.string,
   kegList: PropTypes.array,
-  selectedKegId: PropTypes.string,
+  selectedKeg: PropTypes.object,
   onKegSelection: PropTypes.func
 };
 

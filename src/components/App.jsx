@@ -16,15 +16,14 @@ class App extends React.Component {
         {
           name: "Pineapple Turmeric",
           brand: "Humm Kombucha",
+          description: "Exceptional juiciness and a vibrant tropical flavor that balances the tastes of sweet and tart mixed with the mildly aromatic turmeric.",
           flavor: "Fruity",
           price: 5,
-          description: "Exceptional juiciness and a vibrant tropical flavor that balances the tastes of sweet and tart mixed with the mildly aromatic turmeric.",
           pintsLeft: 124,
           id: "dummyKey"
         }
       ],
-      selectedKegId: null,
-      selectedKegName: null
+      selectedKeg: null
     };
     this.styles = {
       marginTop: "30px"
@@ -42,14 +41,14 @@ class App extends React.Component {
     this.setState({ masterKegList: newMasterKegList });
   }
 
-  handleKegSelection(kegId, name) {
-    this.setState({ selectedKegId: kegId, selectedKegName: name });
+  handleKegSelection(keg) {
+    this.setState({ selectedKeg: keg });
   }
 
   handleKegEdit(newKegInfo) {
     const newMasterKegList = this.state.masterKegList.slice();
     newMasterKegList.forEach((keg) => {
-      if (keg.id == this.state.selectedKegId) {
+      if (keg.id == this.state.selectedKeg.id) {
         keg.name = newKegInfo.name;
         keg.brand = newKegInfo.brand;
         keg.description = newKegInfo.description;
@@ -69,7 +68,7 @@ class App extends React.Component {
           <Route path="/menu" render={() => <Menu kombuchaList={this.state.masterKegList} />} />
           <Route path="/employees" render={() => <EmployeeView kegList={this.state.masterKegList} onKegSelection={this.handleKegSelection} selectedKegId={this.state.selectedKegId} />} />
           <Route path="/add-keg" render={() => <CreateForm onNewKegCreation={this.handleNewKegCreation} />} />
-          <Route path="/edit-keg" render={() => <EditForm onKegEdit={this.handleKegEdit} kegId={this.state.selectedKegId} kegName={this.state.selectedKegName} />} />
+          <Route path="/edit-keg" render={() => <EditForm onKegEdit={this.handleKegEdit} kegToEdit={this.state.selectedKeg} />} />
           <Route component={Error404} />
         </Switch>
       </div>

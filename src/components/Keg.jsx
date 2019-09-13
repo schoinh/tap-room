@@ -22,7 +22,15 @@ function Keg(props) {
 
   const handleEditButtonClick = () => {
     console.log("handler activated");
-    props.onKegSelection(props.kegId, props.name);
+    props.onKegSelection({
+      name: props.name,
+      brand: props.brand,
+      description: props.description,
+      flavor: props.flavor,
+      price: props.price,
+      pintsLeft: props.pintsLeft,
+      id: props.kegId
+    });
   };
 
   return (
@@ -45,10 +53,12 @@ function Keg(props) {
 Keg.propTypes = {
   name: PropTypes.string,
   brand: PropTypes.string,
+  description: PropTypes.string,
+  flavor: PropTypes.string,
   price: PropTypes.number,
   kegId: PropTypes.string,
   pintsLeft: PropTypes.number,
-  selectedKegId: PropTypes.string,
+  selectedKeg: PropTypes.object,
   onKegSelection: PropTypes.func
 };
 
