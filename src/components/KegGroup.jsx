@@ -35,7 +35,8 @@ function KegGroup(props) {
           kegId={keg.id}
           selectedKeg={props.selectedKeg}
           onKegSelection={props.onKegSelection}
-          onPour={props.onPour} />
+          onPour={props.onPour}
+          onKegDelete={props.onKegDelete} />
       )}
     </div>
   );
@@ -46,7 +47,8 @@ KegGroup.propTypes = {
   kegList: PropTypes.array,
   selectedKeg: PropTypes.object,
   onKegSelection: PropTypes.func,
-  onPour: PropTypes.func
+  onPour: PropTypes.func,
+  onKegDelete: PropTypes.func
 };
 
 export default KegGroup;

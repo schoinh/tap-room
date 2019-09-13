@@ -20,6 +20,7 @@ function FlavorGroup(props) {
           brand={kombucha.brand}
           price={kombucha.price}
           description={kombucha.description}
+          pintsLeft={kombucha.pintsLeft}
           key={kombucha.id} />
       )}
     </div>

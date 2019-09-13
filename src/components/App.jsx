@@ -32,6 +32,7 @@ class App extends React.Component {
     this.handleKegSelection = this.handleKegSelection.bind(this);
     this.handleKegEdit = this.handleKegEdit.bind(this);
     this.handlePour = this.handlePour.bind(this);
+    this.handleKegDelete = this.handleKegDelete.bind(this);
   }
 
   handleNewKegCreation(newKeg) {
@@ -49,7 +50,7 @@ class App extends React.Component {
   handlePour(kegId) {
     const newMasterKegList = this.state.masterKegList.slice();
     newMasterKegList.forEach((keg) => {
-      if (keg.id == kegId) {
+      if (keg.id == kegId && keg.pintsLeft > 0) {
         keg.pintsLeft--;
       }
     });
@@ -71,6 +72,12 @@ class App extends React.Component {
     this.setState({ masterKegList: newMasterKegList });
   }
 
+  handleKegDelete(kegId) {
+    const newMasterKegList = this.state.masterKegList.slice();
+    const filteredList = newMasterKegList.filter(keg => keg.id != kegId);
+    this.setState({ masterKegList: filteredList });
+  }
+
   render() {
     return (
       <div style={this.styles} className="container">
@@ -84,7 +91,8 @@ class App extends React.Component {
               kegList={this.state.masterKegList}
               onKegSelection={this.handleKegSelection}
               selectedKeg={this.state.selectedKeg}
-              onPour={this.handlePour} />} />
+              onPour={this.handlePour}
+              onKegDelete={this.handleKegDelete} />} />
           <Route path="/add-keg" render={() =>
             <CreateForm
               onNewKegCreation={this.handleNewKegCreation} />} />

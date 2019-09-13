@@ -36,6 +36,10 @@ function Keg(props) {
     props.onPour(props.kegId);
   };
 
+  const handleDeleteButtonClick = () => {
+    props.onKegDelete(props.kegId);
+  };
+
   return (
     <div style={kegCard}>
       <Link to="/edit-keg">
@@ -45,7 +49,11 @@ function Keg(props) {
           className="btn btn-outline-info">
           Edit</button>
       </Link>
-      <button onClick={() => { }} className="btn btn-outline-danger">Remove</button>
+      <button
+        onClick={() => { handleDeleteButtonClick(); }}
+        style={editDeleteStyles}
+        className="btn btn-outline-danger">
+        Remove</button>
       <h2>
         {props.name} - {props.brand}
         <button
@@ -72,7 +80,8 @@ Keg.propTypes = {
   pintsLeft: PropTypes.number,
   selectedKeg: PropTypes.object,
   onKegSelection: PropTypes.func,
-  onPour: PropTypes.func
+  onPour: PropTypes.func,
+  onKegDelete: PropTypes.func
 };
 
 export default Keg;
