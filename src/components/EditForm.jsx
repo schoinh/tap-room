@@ -19,7 +19,7 @@ function EditForm(props) {
         description: _description.value,
         flavor: _flavor.value,
         price: parseInt(_price.value),
-        pintsLeft: _pintsLeft.value
+        pintsLeft: parseInt(_pintsLeft.value)
       }
     );
   };
