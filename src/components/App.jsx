@@ -8,7 +8,7 @@ import Error404 from "./Error404";
 
 function App() {
   return (
-    <div>
+    <div className="container">
       <Switch>
         <Route exact path="/" component={Splash} />
         <Route path="/menu" component={Menu} />
