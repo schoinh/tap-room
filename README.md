@@ -24,11 +24,11 @@ The employee page shows a similar list of available kombucha kegs, with addition
     ```
     $ npm install
     ```
-3. Build distribution files:
+3. Start development server:
     ```
-    $ webpack
+    $ npm start
     ```
-4. Open the web page (dist/index.html)
+4. Navigate to localhost:8080 in your browser (Chrome recommended).
 
 ## Known Bugs
 * No known bugs at this time.
