@@ -10,7 +10,6 @@ function EmployeeView(props) {
       <hr />
       <KegList
         kegList={props.kegList}
-        selectedKeg={props.selectedKeg}
         onKegSelection={props.onKegSelection}
         onPour={props.onPour}
         onKegDelete={props.onKegDelete} />
@@ -22,7 +21,6 @@ function EmployeeView(props) {
 
 EmployeeView.propTypes = {
   kegList: PropTypes.array,
-  selectedKeg: PropTypes.object,
   onKegSelection: PropTypes.func,
   onPour: PropTypes.func,
   onKegDelete: PropTypes.func

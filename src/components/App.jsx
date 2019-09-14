@@ -12,7 +12,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      masterKegList: [
+      masterKegList: [ // I chose to use an array instead of object to take advantage of .filter() method
+        // Below is a dummy kombucha entry that can be commented out; makes testing faster.
         {
           name: "Pineapple Turmeric",
           brand: "Humm Kombucha",
@@ -43,6 +44,7 @@ class App extends React.Component {
     this.setState({ masterKegList: newMasterKegList });
   }
 
+  // Used when user clicks "Edit" on a specific keg, to pass pre-filled info to edit form
   handleKegSelection(keg) {
     this.setState({ selectedKeg: keg });
   }
@@ -90,7 +92,6 @@ class App extends React.Component {
             <EmployeeView
               kegList={this.state.masterKegList}
               onKegSelection={this.handleKegSelection}
-              selectedKeg={this.state.selectedKeg}
               onPour={this.handlePour}
               onKegDelete={this.handleKegDelete} />} />
           <Route path="/add-keg" render={() =>

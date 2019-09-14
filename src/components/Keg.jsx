@@ -20,6 +20,7 @@ function Keg(props) {
     marginLeft: "10px"
   };
 
+  // Passes existing keg info to EditForm, via the selectedKeg state in App
   const handleEditButtonClick = () => {
     props.onKegSelection({
       name: props.name,
@@ -78,7 +79,6 @@ Keg.propTypes = {
   price: PropTypes.number,
   kegId: PropTypes.string,
   pintsLeft: PropTypes.number,
-  selectedKeg: PropTypes.object,
   onKegSelection: PropTypes.func,
   onPour: PropTypes.func,
   onKegDelete: PropTypes.func

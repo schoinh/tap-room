@@ -33,7 +33,6 @@ function KegGroup(props) {
           pintsLeft={keg.pintsLeft}
           key={keg.id}
           kegId={keg.id}
-          selectedKeg={props.selectedKeg}
           onKegSelection={props.onKegSelection}
           onPour={props.onPour}
           onKegDelete={props.onKegDelete} />
@@ -45,7 +44,6 @@ function KegGroup(props) {
 KegGroup.propTypes = {
   status: PropTypes.string,
   kegList: PropTypes.array,
-  selectedKeg: PropTypes.object,
   onKegSelection: PropTypes.func,
   onPour: PropTypes.func,
   onKegDelete: PropTypes.func

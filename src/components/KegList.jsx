@@ -8,7 +8,6 @@ function KegList(props) {
       <KegGroup
         status="Running Low (10 pt or Less)"
         kegList={props.kegList}
-        selectedKeg={props.selectedKeg}
         onKegSelection={props.onKegSelection}
         onPour={props.onPour}
         onKegDelete={props.onKegDelete} />
@@ -16,7 +15,6 @@ function KegList(props) {
       <KegGroup
         status="OK"
         kegList={props.kegList}
-        selectedKeg={props.selectedKeg}
         onKegSelection={props.onKegSelection}
         onPour={props.onPour}
         onKegDelete={props.onKegDelete} />
@@ -26,7 +24,6 @@ function KegList(props) {
 
 KegList.propTypes = {
   kegList: PropTypes.array,
-  selectedKeg: PropTypes.object,
   onKegSelection: PropTypes.func,
   onPour: PropTypes.func,
   onKegDelete: PropTypes.func
