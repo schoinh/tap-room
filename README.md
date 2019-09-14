@@ -31,7 +31,7 @@ The employee page shows a similar list of available kombucha kegs, with addition
 4. Navigate to localhost:8080 in your browser (Chrome recommended).
 
 ## Known Bugs
-* No known bugs at this time.
+* User input validation is inadequate. Keg price per pint and pints left must be entered in integers.
 
 ## Technologies Used
 * JavaScript
