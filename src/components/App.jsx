@@ -12,8 +12,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      masterKegList: [ // I chose to use an array instead of object to take advantage of .filter() method
-        // Below is a dummy kombucha entry that can be commented out; makes testing faster.
+      masterKegList: [ // I chose to use an array instead of object to take advantage of .filter() method, but I can also use an object and use .key and .filter
+        // Below are dummy kombucha entries that can be commented out; makes testing faster.
         {
           name: "Pineapple Turmeric",
           brand: "Humm Kombucha",
@@ -21,7 +21,16 @@ class App extends React.Component {
           flavor: "Fruity",
           price: 5,
           pintsLeft: 124,
-          id: "dummyKey"
+          id: "dummyKey1"
+        },
+        {
+          name: "Clear Mind",
+          brand: "Brew Dr",
+          description: "A fan favorite, this brilliant blend of rosemary, mint, sage and green tea creates a distinctly smooth herbal flavor worth savoring.",
+          flavor: "Herbal",
+          price: 5,
+          pintsLeft: 8,
+          id: "dummyKey2"
         }
       ],
       selectedKeg: null
